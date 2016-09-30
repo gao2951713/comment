@@ -1,0 +1,92 @@
+[
+    {
+        "id": 1473657133928,
+        "author": "如何在vim中插入系统日期",
+        "text": "使用 ` :read !date `\n英文格式 ` :read !date -R `\n格式化 ` 参考 read --h `"
+    },
+    {
+        "id": 1473657989290,
+        "author": "快速开始",
+        "text": "```html\n<!DOCTYPE html>\n<html>\n  <head>\n    <title>Hello React</title>\n    <script src=\"http://fb.me/react-0.13.0.js\"></script>\n    <script src=\"http://fb.me/JSXTransformer-0.13.0.js\"></script>\n  </head>\n  <body>\n    <div id=\"example\"></div>\n    <script type=\"text/jsx\">\n\n      // ** 在这里替换成你的代码 **\n\n    </script>\n  </body>\n</html>\n```"
+    },
+    {
+        "id": 1473658119809,
+        "author": "替换掉上面用来占位的注释",
+        "text": "```javascript\nvar HelloWorld = React.createClass({\n  render: function() {\n    return (\n      <p>\n        Hello, <input type=\"text\" placeholder=\"Your name here\" />!\n        It is {this.props.date.toTimeString()}\n      </p>\n    );\n  }\n});\n\nsetInterval(function() {\n  React.render(\n    <HelloWorld date={new Date()} />,\n    document.getElementById('example')\n  );\n}, 500);\n```"
+    },
+    {
+        "id": 1473658173907,
+        "author": "响应式更新 (Reactive Updates)",
+        "text": "在输入框输入你的名字。你会发现 React 在用户界面中只改变了时间，你在输入框的输入内容会保留着，即使你没有写任何代码来完成这个功能。React 也为你解决了这个问题，做了正确的事。"
+    },
+    {
+        "id": 1473658243053,
+        "author": "组件就像是函数",
+        "text": "React 组件非常简单。接受 props 和 state (后面会讨论) 作为参数，然后渲染出 HTML。\n>一个限制: React 组件只能渲染单个根节点。如果你想要返回多个节点，它们必须被包含在同一个节点里。"
+    },
+    {
+        "id": 1473658443191,
+        "author": "JSX 语法",
+        "text": "* JSX 让你可以用 HTML 语法去写 JavaScript 函数调用。*   \n为了在 React 生成一个链接，通过纯 JavaScript 你可以这么写： React.createElement('a', {href: 'http://facebook.github.io/react/'}, 'Hello React!')。  \n通过 JSX 这就变成了 Hello React!。\n>最简单开始学习 JSX 的方法就是使用浏览器端的 JSXTransformer。我们强烈建议你不要在生产环境中使用它。你可以通过我们的命令行工具 react-tools 包来预编译你的代码。"
+    },
+    {
+        "id": 1473658798414,
+        "author": "没有 JSX 的 React",
+        "text": "方便起见，你可以创建基于自定义组件的速记工厂方法。\n```\nvar Factory = React.createFactory(ComponentClass);\n...\nvar root = Factory({ custom: 'prop' });\nReact.render(root, document.body);\n```\nReact 已经为 HTML 标签提供内置工厂方法。\n```\nvar root = React.DOM.ul({ className: 'my-list' },\n             React.DOM.li(null, 'Text Content')\n           );\n```"
+    },
+    {
+        "id": 1473660124261,
+        "author": "html标签中的特殊写法。",
+        "text": "* 涉及到javascript关键字，或者为mapping键值对格式的属性，要使用{{}}来传递，不能写在“”里面 *   \n例如` style  `\n不能写成style=\"width:800px;height:35px;\"\n而是写成style={{width:800+'px',height:35+'px'}}\n并且数字后边的单位要用字符串拼接上去。否则会提示没有对应的解析标记。"
+    },
+    {
+        "id": 1474185426443,
+        "author": "es6将promise和fetch组合使用",
+        "text": "实现一个get，和post方法，通过传递url和params，从而实现后台请求。"
+    },
+    {
+        "id": 1474188586675,
+        "author": "在页面输出的content中出现一段注释语句",
+        "text": "经调查发现，在react的组件的return中写入的注释语句，会被返回到上层标签内部，会导致渲染的页面段落中出现额外的文段。*因此，注意不能在return区域内写注释语句。*"
+    },
+    {
+        "id": 1474360833218,
+        "author": "fetch请求的一些改进",
+        "text": "将fetch请求改为先定义对象的所有属性，再对各个属性进行赋值操作。将对象和对对象属性的操作分离开来，最大限度解耦。从而降低维护成本。另外，由于js的obj在定义时执行不能进行内部属性调用，因此不能使用`this`关键字，此时对应的是`window对象`参考`lib/fetch.js`"
+    },
+    {
+        "id": 1474360949033,
+        "author": "fetch请求的一些改进",
+        "text": "将fetch请求改为先定义对象的所有属性，再对各个属性进行赋值操作。将对象和对对象属性的操作分离开来，最大限度解耦。从而降低维护成本。另外，由于js的obj在定义时执行不能进行内部属性调用，因此不能使用`this`关键字，此时对应的是`window对象`参考`lib/fetch.js`"
+    },
+    {
+        "id": 1474361019557,
+        "author": "fetch请求的一些改进",
+        "text": "将fetch请求改为先定义对象的所有属性，再对各个属性进行赋值操作。将对象和对对象属性的操作分离开来，最大限度解耦。从而降低维护成本。另外，由于js的obj在定义时执行不能进行内部属性调用，因此不能使用this关键字，此时对应的是window对象参考lib/fetch.js"
+    },
+    {
+        "id": 1475128365780,
+        "author": "oracle 11g操作",
+        "text": "### 如何在oracle中设置字段自动增长\n```\n----删除表\ndrop table t_user cascade constraints;\n----创建表\nCreate  table  t_user(\nId number(6),userid varchar2(20),loginpassword varchar2(20),isdisable number(6)\n);\n\n----创建序列\ndrop sequence \"user_seq\";\ncreate sequence \"user_seq\"\nincrement by 1 \nstart with 1\nnomaxvalue\nnominvalue\nnocache;\n\n----创建触发器\ncreate or  replace trigger \"tr_user\"\nbefore insert on t_user\nfor each row\nbegin\nselect user_seq.nextval into :new.id from dual;\nend;\n----测试\ninsert into t_user(userid,loginpassword, isdisable)values('ffll','liudddyujj', 0);\ninsert into t_user(userid,loginpassword, isdisable)values('dddd','zhang', 0);\nselect * from t_user;\n--seq的两个方法\nselect user_seq.currval from dual;\nselect seq_on_test.nextval from dual;\n---查看当前用户创建的队列\nselect * from user_sequences\n---查看所有队列\nselect * from all_sequences```"
+    },
+    {
+        "id": 1475128434535,
+        "author": "oracle 11g操作",
+        "text": "### 数据库基础操作\n```\nconn secooler/secooler --建立连接\nselect * from v$version;--查询数据库版本信息\n```"
+    },
+    {
+        "id": 1475128486288,
+        "author": "oracle 11g操作",
+        "text": "### 数据库创建表空间、用户创建操作\n```\ncreate tablespace tbs_secooler datafile '/oracle/ora10gR2/oradata/ora10g/tbs_secooler_01.dbf' size 10m; --创建表空间 TBS_SECOOLER\ncreate user secooler identified by secoolerpwd default tablespace tbs_secooler; --在TBS_SECOOLER表空间上创建用户SECOOLER\ngrant connect,resource to secooler;--在TBS_SECOOLER表空间上创建用户SECOOLER并授权\nselect username,default_tablespace from dba_users where username = 'SECOOLER'; --查询用户与表空间的对应关系\ncreate table t_secooler as select * from all_objects; --在SECOOLER用户中创建测试表\nalter tablespace TBS_SECOOLER rename to TBS_ANDY; --修改表空间名字\nselect segment_name,tablespace_name from dba_segments where segment_name='T_SECOOLER';\n```"
+    },
+    {
+        "id": 1475137506002,
+        "author": "power designer 16操作",
+        "text": "对于oracle模型设计，自增主键的设置是定义sequence，再定义tringger触发器。所以。在导入sql时，要先导入sequence定义，再导入包含触发器定义的建表语句。* 否则会报错。*"
+    },
+    {
+        "id": 1475137757599,
+        "author": "power designer 16操作",
+        "text": "#### 创建数据库模型时，往往涉及到字段名大小写转换，下面是一段转换代码。在PDM中按`ctrl+shift+x`,打开命令窗口。在pdm自带的脚本目录中，还有些其它的`vbs`脚本可以做参考。\n```\n Option Explicit\nValidationMode = True\nInteractiveMode = im_Batch\n\nDim mdl ' the current model\n' UCase大写 LCase小写\n' 取得当前Model\nSet mdl = ActiveModel\nIf (mdl Is Nothing) Then\n   MsgBox \"There is no current Model\"\nElseIf Not mdl.IsKindOf(PdPDM.cls_Model) Then\n   MsgBox \"The current model is not an Physical Data model.\"\nElse\n   ProcessFolder mdl\nEnd If\n\nPrivate sub ProcessFolder(folder)\n    '处理表\n   Dim Tab\n   for each Tab in folder.tables\n         tab.code = UCase(tab.code)\n         '修改字段名\n         Dim col\n         for each col in tab.columns\n            col.code= UCase(col.code)\n         next\n         '修改索引名\n         Dim idx\n         for each idx in tab.indexes\n            idx.code= UCase(idx.code)\n         next\n         '修改主键名\n         Dim key\n         for each key in tab.keys\n            key.code= UCase(key.code)\n         next\n   next\n\n' 同理处理视图\n' Dim view\n'   for each view in folder.Views\n   '   if not view.isShortcut then\n       ' view.code = view.name\n    ' end if\n' next\n\n   ' go into the sub-packages\n   Dim f ' running folder\n   For Each f In folder.Packages\n      if not f.IsShortcut then\n         ProcessFolder f\n      end if\n   Next\nend sub\n```"
+    }
+]
