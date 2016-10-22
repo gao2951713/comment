@@ -71,6 +71,11 @@ var CommentBox = React.createClass({
 	getInitialState: function() {
 		return {data: []};
 	},
+	/**
+	 * 
+	 * 	 *
+	 *
+	 */
 	componentDidMount: function() {
 		this.loadCommentsFromServer();
 		setInterval(this.loadCommentsFromServer, this.props.pollInterval);
@@ -131,6 +136,21 @@ var CommentForm = React.createClass({
     this.props.onCommentSubmit({author: author, text: text});
     this.setState({author: '', text: ''});
   },
+  /**
+   *
+   * 页面标签加载后才加载后该方法中的处理
+   * 调用simplemde编辑器插件，初始化到页面的textarea标签
+   *
+   */
+  componentDidMount: function() {
+	  
+	var obj = {};
+	debugger;
+	obj.element= document.getElementById("mde");
+	var simplemde = new SimpleMDE(obj);
+	simplemde.value("this is a test case of simplemarkdown editor");
+	
+  },
   render: function() {
     return (
       <form className="commentForm" onSubmit={this.handleSubmit}>
@@ -144,7 +164,7 @@ var CommentForm = React.createClass({
         />
 		<br />
         <textarea
-          type="text"  style={{width:800+'px',height:350+'px'}}
+          type="text" id="mde" style={{width:800+'px',height:350+'px'}}
           placeholder="Say something..."
 		  title = "请输入文本内容！"
           value={this.state.text}
