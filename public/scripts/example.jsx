@@ -9,6 +9,9 @@
  * ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+ 
+ // 创建变量，作为全局变量初始化markdown编辑器。
+var simplemde;
 var Comment = React.createClass({
   rawMarkup: function() {
     var rawMarkup = marked(this.props.children.toString());
@@ -123,13 +126,18 @@ var CommentForm = React.createClass({
   handleAuthorChange: function(e) {
     this.setState({author: e.target.value});
   },
-  handleTextChange: function(e) {
-    this.setState({text: e.target.value});
-  },
+  // 使用编辑器插件后，由于textarea标签被mde插件替代，所以onChange事件不再触发
+  // 废除掉该方法
+  //handleTextChange: function(e) {
+  //  this.setState({text: e.target.value});
+  // },
   handleSubmit: function(e) {
     e.preventDefault();
     var author = this.state.author.trim();
-    var text = this.state.text.trim();
+	// 改变获取文本方式。将textarea.onchange获取改为markdown编辑器插件的mde.value()方式
+    var text = simplemde.value();
+    // var text = this.state.text.trim();
+	debugger;
     if (!text || !author) {
       return;
     }
@@ -145,11 +153,9 @@ var CommentForm = React.createClass({
   componentDidMount: function() {
 	  
 	var obj = {};
-	debugger;
 	obj.element= document.getElementById("mde");
-	var simplemde = new SimpleMDE(obj);
+	simplemde = new SimpleMDE(obj);
 	simplemde.value("this is a test case of simplemarkdown editor");
-	
   },
   render: function() {
     return (
@@ -168,7 +174,8 @@ var CommentForm = React.createClass({
           placeholder="Say something..."
 		  title = "请输入文本内容！"
           value={this.state.text}
-          onChange={this.handleTextChange}
+		  // 由于被mde控件替代。该事件不会触发
+          // onChange={this.handleTextChange}
         />
         <input type="submit" value="Post" />
       </form>
